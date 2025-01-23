@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './styles/chess-pieces.css';
+
+/* Custom animations */
+@keyframes piece-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.piece-hover-effect {
+  animation: piece-bounce 0.3s ease-in-out;
+}
+
+/* Square highlight effects */
+.square-highlight {
+  position: relative;
+}
+
+.square-highlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  background: rgba(255, 255, 0, 0.2);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 0.3; }
+  100% { opacity: 0.6; }
+}
+
+/* Move indicators */
+.move-dot {
+  width: 25%;
+  height: 25%;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.capture-indicator {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  position: absolute;
+  inset: 4px;
+}
